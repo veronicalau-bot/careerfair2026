@@ -216,22 +216,22 @@ const App = () => {
         <li></li><li></li><li></li><li></li><li></li>
       </ul>
 
-      {/* 導航列 - 極簡高對比 */}
+      {/* 導航列 - 調整為 max-w-[1600px] 以適應 16:9 寬螢幕 */}
       <nav className="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16">
+          <div className="flex justify-between items-center h-20 gap-4">
             <button 
               onClick={() => setActiveView('home')}
-              className="flex items-center gap-3 hover:opacity-70 transition-opacity"
+              className="flex items-center gap-2 md:gap-3 hover:opacity-70 transition-opacity shrink-0"
             >
-              <div className="bg-black p-2 rounded-lg text-white">
+              <div className="bg-black p-1.5 md:p-2 rounded-lg text-white">
                 <BookOpen className="w-5 h-5" fill="currentColor" />
               </div>
-              <span className="text-2xl font-black tracking-tighter uppercase">
+              <span className="text-xl md:text-2xl font-black tracking-tighter uppercase whitespace-nowrap">
                 Library Resources
               </span>
             </button>
-            <div className="hidden sm:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-gray-400">
+            <div className="hidden sm:block text-[10px] md:text-xs font-bold uppercase tracking-widest text-gray-400 text-right shrink ml-4 leading-snug break-words">
               HKAPA Career & Internship Fair 2026
             </div>
           </div>
@@ -247,7 +247,8 @@ const App = () => {
       {activeView === 'home' ? (
         <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 flex flex-col min-h-screen">
           
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col">
+          {/* 主內容區 - 同步調整為 max-w-[1600px] */}
+          <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full flex-1 flex flex-col">
             
             <div className="max-w-4xl mb-24">
               <h1 className="text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-black mb-8 leading-[1.05] uppercase">
@@ -308,7 +309,7 @@ const App = () => {
               </div>
             </div>
 
-            {/* 主題分類卡片區 - 乾淨、邊框、無漸層 */}
+            {/* 主題分類卡片區 */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {categories.map((cat, index) => {
                 const IconComponent = cat.icon;
@@ -362,7 +363,8 @@ const App = () => {
           return (
             <section className="pt-32 pb-20 min-h-screen relative bg-transparent flex flex-col">
               
-              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1">
+              {/* 分類內容區 - 同步調整為 max-w-[1600px] */}
+              <div className="max-w-[1600px] mx-auto px-6 md:px-12 lg:px-16 relative z-10 w-full flex-1">
                 
                 <button 
                   onClick={() => setActiveView('home')}
