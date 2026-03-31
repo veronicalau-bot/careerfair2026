@@ -404,7 +404,7 @@ const App = () => {
 
                 <div className="flex flex-col xl:flex-row items-start xl:items-center justify-between mb-12 gap-6">
                   <div className="flex items-center gap-4">
-                    <h3 className="text-2xl font-bold text-black tracking-tight">Curated Reading List 精選書單</h3>
+                    <h3 className="text-2xl font-bold text-black tracking-tight">Selected Resources 精選書單</h3>
                     <span className="text-gray-400 text-sm font-bold uppercase tracking-widest hidden sm:inline-block">{filteredBooks.length} Books 書籍</span>
                   </div>
 
