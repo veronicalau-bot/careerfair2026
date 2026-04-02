@@ -146,7 +146,7 @@ const App = () => {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black">
+      <div className="min-h-screen flex flex-col items-center justify-center bg-white text-black w-full text-left">
         <Loader2 className="w-10 h-10 animate-spin mb-4" />
         <p className="text-sm font-bold tracking-widest uppercase">Loading Resources 載入資源中...</p>
       </div>
@@ -154,7 +154,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen font-sans text-black bg-[#FDFDFD] selection:bg-black selection:text-white relative overflow-hidden">
+    <div className="w-full min-h-screen font-sans text-black text-left bg-[#FDFDFD] selection:bg-black selection:text-white relative overflow-hidden">
       
       {/* 注入自訂的漂浮方塊動畫 CSS (參考自 CodePen) */}
       <style>{`
@@ -439,16 +439,16 @@ const App = () => {
                 </div>
 
                 {filteredBooks.length > 0 ? (
-                  <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                  <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                     {filteredBooks.map(book => (
                       <div key={book.id} className="group flex flex-col">
-                        <div className="h-80 overflow-hidden relative bg-gray-100 border border-gray-200 mb-6">
+                        <div className="aspect-[3/4] w-full overflow-hidden relative bg-gray-100 border border-gray-200 mb-4 sm:mb-6">
                           
                           {book.format && (
-                            <div className="absolute top-4 left-4 z-20">
-                              <span className="text-xs font-bold px-3 py-1.5 bg-black text-white uppercase tracking-widest flex items-center">
-                                {book.format.includes('eBook') ? <Tablet className="w-3 h-3 mr-1.5" /> : 
-                                 book.format.includes('Physical') ? <Book className="w-3 h-3 mr-1.5" /> : null}
+                            <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-20">
+                              <span className="text-[10px] sm:text-xs font-bold px-2 py-1 sm:px-3 sm:py-1.5 bg-black text-white uppercase tracking-widest flex items-center">
+                                {book.format.includes('eBook') ? <Tablet className="w-3 h-3 mr-1 sm:mr-1.5" /> : 
+                                 book.format.includes('Physical') ? <Book className="w-3 h-3 mr-1 sm:mr-1.5" /> : null}
                                 {book.format}
                               </span>
                             </div>
@@ -469,8 +469,8 @@ const App = () => {
                             )}
                             
                             <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center pointer-events-none">
-                              <span className="text-white font-bold text-sm uppercase tracking-widest flex items-center">
-                                {book.url ? 'Go to Library 前往圖書館' : 'View Details 查看詳情'} <ArrowRight className="w-4 h-4 ml-2" />
+                              <span className="text-white font-bold text-xs sm:text-sm uppercase tracking-widest flex items-center">
+                                {book.url ? 'Go to Library' : 'View Details'} <ArrowRight className="w-3 h-3 sm:w-4 sm:h-4 ml-1.5 sm:ml-2" />
                               </span>
                             </div>
                           </div>
@@ -481,21 +481,21 @@ const App = () => {
                         </div>
                         
                         <div className="flex flex-col flex-1">
-                          <div className="text-xs font-bold text-gray-400 mb-2 uppercase tracking-widest">
+                          <div className="text-[10px] sm:text-xs font-bold text-gray-400 mb-1 sm:mb-2 uppercase tracking-widest">
                             {book.author || 'Unknown Author 未知作者'}
                           </div>
-                          <h4 className="text-lg font-bold text-black mb-3 leading-snug">{book.title}</h4>
-                          <p className="text-gray-500 text-sm leading-relaxed mb-6">{book.desc}</p>
+                          <h4 className="text-base sm:text-lg font-bold text-black mb-2 sm:mb-3 leading-snug">{book.title}</h4>
+                          <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 line-clamp-3">{book.desc}</p>
                           
                           {book.url && (
-                            <div className="mt-auto pt-4 border-t border-gray-100">
+                            <div className="mt-auto pt-3 sm:pt-4 border-t border-gray-100">
                               <a 
                                 href={book.url} 
                                 target="_blank" 
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center text-xs font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors"
+                                className="inline-flex items-center text-[10px] sm:text-xs font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors"
                               >
-                                Library Page 圖書館頁面 <ExternalLink className="w-3 h-3 ml-1.5" />
+                                Library Page 圖書館頁面 <ExternalLink className="w-3 h-3 ml-1 sm:ml-1.5" />
                               </a>
                             </div>
                           )}
