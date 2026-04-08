@@ -12,7 +12,8 @@ import {
   Loader2,
   Tablet,
   Book,
-  Compass
+  Compass,
+  Target
 } from 'lucide-react';
 
 // ==========================================
@@ -24,11 +25,51 @@ const GOOGLE_SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vR
 // 2. 極簡高對比風格分類設定 (Minimalist & Structured)
 // ==========================================
 const baseCategories = [
-  { id: 'self-exploration', title: '自我探索 Self-Exploration', icon: Compass, styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, desc: '透過 MBTI 與人格分析深入了解自己，發掘適合的職涯方向。 Discover suitable career paths through MBTI and personality analysis.', wixUrl: '' },
-  { id: 'online-resources', title: '線上求職資源 Online Resources', icon: Search, styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, desc: '掌握最新的求職平台與線上工具，學習如何高效搜尋職缺。 Master the latest platforms to efficiently search for jobs.', wixUrl: 'https://career306.wixsite.com/careerresourcehub/online-resources-for-job-searching' },
-  { id: 'email-writing', title: '求職信撰寫 Email Writing', icon: Mail, styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, desc: '教你如何寫出一封專業、吸睛且具備禮貌的求職信件。 Learn how to write a professional and eye-catching cover letter.', wixUrl: 'https://career306.wixsite.com/careerresourcehub/writing-an-email-for-job-application' },
-  { id: 'resume', title: '履歷撰寫技巧 Resume Tips', icon: FileText, styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, desc: '打造完美履歷的實戰指南，將校園經歷轉化為企業看重的亮點優勢。 Practical guide to crafting a perfect resume with your highlights.', wixUrl: 'https://career306.wixsite.com/careerresourcehub/resume-tips' },
-  { id: 'interview', title: '面試技巧指南 Interview Tips', icon: MessageSquare, styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, desc: '從常見問題分析到實境模擬策略，透過推薦書目助你在面試中展現自信。 From common questions to mock strategies to show confidence.', wixUrl: 'https://career306.wixsite.com/careerresourcehub/interview-tips' },
+  { 
+    id: 'self-exploration', 
+    title: '自我探索 Self-Exploration', 
+    icon: Compass, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '透過 MBTI 與人格分析深入了解自己，發掘適合的職涯方向。 Discover suitable career paths through MBTI and personality analysis.', 
+    wixUrl: '',
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=800&auto=format&fit=crop'
+  },
+  { 
+    id: 'online-resources', 
+    title: '線上求職資源 Online Resources', 
+    icon: Search, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '掌握最新的求職平台與線上工具，學習如何高效搜尋職缺。 Master the latest platforms to efficiently search for jobs.', 
+    wixUrl: 'https://career306.wixsite.com/careerresourcehub/online-resources-for-job-searching',
+    image: 'https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=800&auto=format&fit=crop'
+  },
+  { 
+    id: 'email-writing', 
+    title: '求職信撰寫 Email Writing', 
+    icon: Mail, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '教你如何寫出一封專業、吸睛且具備禮貌的求職信件。 Learn how to write a professional and eye-catching cover letter.', 
+    wixUrl: 'https://career306.wixsite.com/careerresourcehub/writing-an-email-for-job-application',
+    image: 'https://images.unsplash.com/photo-1556204975-1851fadab092?q=80&w=800&auto=format&fit=crop'
+  },
+  { 
+    id: 'resume', 
+    title: '履歷撰寫技巧 Resume Tips', 
+    icon: FileText, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '打造完美履歷的實戰指南，將校園經歷轉化為企業看重的亮點優勢。 Practical guide to crafting a perfect resume with your highlights.', 
+    wixUrl: 'https://career306.wixsite.com/careerresourcehub/resume-tips',
+    image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop'
+  },
+  { 
+    id: 'interview', 
+    title: '面試技巧指南 Interview Tips', 
+    icon: MessageSquare, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '從常見問題分析到實境模擬策略，透過推薦書目助你在面試中展現自信。 From common questions to mock strategies to show confidence.', 
+    wixUrl: 'https://career306.wixsite.com/careerresourcehub/interview-tips',
+    image: 'https://images.unsplash.com/photo-1698047681452-08eba22d0c64?q=80&w=800&auto=format&fit=crop'
+  },
   { 
     id: 'elevator-pitch', 
     title: '自我介紹與個人品牌 Elevator Pitch & Personal Branding', 
@@ -36,7 +77,17 @@ const baseCategories = [
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
     desc: '建立個人品牌並掌握電梯簡報訣竅，學會精準行銷自己。 Build your personal brand and master the elevator pitch to market yourself.', 
     wixUrl: 'https://career306.wixsite.com/careerresourcehub/elevator-pitch',
-    libGuideUrl: 'https://lgapi-au.libapps.com/widget_box.php?site_id=18098&widget_type=8&output_format=2&widget_title=Online+Courses+%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B&widget_height=&widget_width=&widget_embed_type=1&guide_id=946020&box_id=23175179&map_id=27161535&content_only=0&include_jquery=0&config_id=1774599982146&bs5_widget=0' 
+    libGuideUrl: 'https://lgapi-au.libapps.com/widget_box.php?site_id=18098&widget_type=8&output_format=2&widget_title=Online+Courses+%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B&widget_height=&widget_width=&widget_embed_type=1&guide_id=946020&box_id=23175179&map_id=27161535&content_only=0&include_jquery=0&config_id=1774599982146&bs5_widget=0',
+    image: 'https://images.unsplash.com/photo-1552581234-26160f608093?q=80&w=800&auto=format&fit=crop'
+  },
+  { 
+    id: 'self-management', 
+    title: '各種自我管理技能 Self-Management Skills', 
+    icon: Target, 
+    styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
+    desc: '培養時間管理、情緒調節與抗壓能力，全面提升職場與生活效能。 Develop time management, emotional resilience, and stress management skills.', 
+    wixUrl: '',
+    image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop'
   }
 ];
 
@@ -310,7 +361,7 @@ const App = () => {
             </div>
 
             {/* 主題分類卡片區 */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {categories.map((cat, index) => {
                 const IconComponent = cat.icon;
                 const bookCount = cat.books ? cat.books.length : 0;
@@ -319,26 +370,40 @@ const App = () => {
                   <button 
                     key={cat.id}
                     onClick={() => setActiveView(cat.id)}
-                    className="group block w-full text-left bg-white p-8 border border-gray-200 hover:border-black transition-colors duration-300 flex flex-col h-full"
+                    className="group block w-full text-left bg-white border border-gray-200 hover:border-black transition-all duration-500 flex flex-col h-full overflow-hidden hover:-translate-y-1 hover:shadow-xl"
                   >
-                    <div className="flex justify-between items-start mb-12">
-                      <div className={`w-14 h-14 ${cat.styles.bg} rounded-xl flex items-center justify-center ${cat.styles.text}`}>
-                        <IconComponent className="w-6 h-6" />
+                    {/* 上半部：實景相片 */}
+                    <div className="h-48 sm:h-52 w-full relative overflow-hidden bg-gray-100">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors z-10 duration-500"></div>
+                      <img 
+                        src={cat.image} 
+                        alt={cat.title} 
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        onError={(e) => {e.target.src = 'https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop'}}
+                      />
+                      <div className="absolute top-4 right-4 z-20">
+                        <span className="text-[10px] sm:text-xs font-bold bg-white text-black px-3 py-1.5 uppercase tracking-widest shadow-sm">
+                          {bookCount} Items 項目
+                        </span>
                       </div>
-                      <span className="text-xs font-bold text-gray-400 uppercase tracking-widest">
-                        {bookCount} Items 項目
-                      </span>
                     </div>
                     
-                    <div className="mt-auto">
-                      <h4 className="text-xl md:text-2xl font-bold text-black mb-4">
-                        {cat.title}
-                      </h4>
-                      <p className="text-gray-500 font-medium leading-relaxed mb-8">
-                        {cat.desc}
-                      </p>
-                      <div className="text-black font-bold flex items-center text-sm uppercase tracking-wider">
-                        Explore 探索 <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" />
+                    {/* 下半部：內容區塊 */}
+                    <div className="p-6 sm:p-8 flex-1 flex flex-col relative bg-white">
+                      <div className={`w-14 h-14 ${cat.styles.bg} rounded-xl flex items-center justify-center ${cat.styles.text} absolute -top-7 left-6 sm:left-8 border-4 border-white shadow-sm`}>
+                        <IconComponent className="w-6 h-6" />
+                      </div>
+                      
+                      <div className="mt-8 flex-1 flex flex-col">
+                        <h4 className="text-xl md:text-2xl font-bold text-black mb-3">
+                          {cat.title}
+                        </h4>
+                        <p className="text-gray-500 text-sm leading-relaxed mb-8 flex-1">
+                          {cat.desc}
+                        </p>
+                        <div className="text-black font-bold flex items-center text-sm uppercase tracking-wider mt-auto">
+                          Explore 探索 <ArrowRight className="w-4 h-4 ml-2 transform group-hover:translate-x-2 transition-transform" />
+                        </div>
                       </div>
                     </div>
                   </button>
