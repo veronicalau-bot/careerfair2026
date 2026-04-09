@@ -36,7 +36,7 @@ const baseCategories = [
   },
   { 
     id: 'online-resources', 
-    title: '線上求職資源 Online Resources', 
+    title: '搜尋職缺技巧 Job Seeking', 
     icon: Search, 
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
     desc: '掌握最新的求職平台與線上工具，學習如何高效搜尋職缺。 Master the latest platforms to efficiently search for jobs.', 
@@ -45,19 +45,19 @@ const baseCategories = [
   },
   { 
     id: 'email-writing', 
-    title: '求職信撰寫 Email Writing', 
+    title: '撰寫求職信 Cover Letter Writing', 
     icon: Mail, 
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
-    desc: '教你如何寫出一封專業、吸睛且具備禮貌的求職信件。 Learn how to write a professional and eye-catching cover letter.', 
+    desc: '教你如何寫出一封專業且吸睛的求職信件。 Learn how to write a professional and eye-catching cover letter.', 
     wixUrl: 'https://career306.wixsite.com/careerresourcehub/writing-an-email-for-job-application',
     image: 'https://images.unsplash.com/photo-1556204975-1851fadab092?q=80&w=800&auto=format&fit=crop'
   },
   { 
     id: 'resume', 
-    title: '履歷撰寫技巧 Resume Tips', 
+    title: '撰寫履歷技巧 Resume Tips', 
     icon: FileText, 
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
-    desc: '打造完美履歷的實戰指南，將校園經歷轉化為企業看重的亮點優勢。 Practical guide to crafting a perfect resume with your highlights.', 
+    desc: '將學術與其他成就亮點，轉化為出色的履歷。 Transform academic and extracurricular highlights into the perfect resume', 
     wixUrl: 'https://career306.wixsite.com/careerresourcehub/resume-tips',
     image: 'https://images.unsplash.com/photo-1586281380349-632531db7ed4?q=80&w=800&auto=format&fit=crop'
   },
@@ -66,7 +66,7 @@ const baseCategories = [
     title: '面試技巧指南 Interview Tips', 
     icon: MessageSquare, 
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
-    desc: '從常見問題分析到實境模擬策略，透過推薦書目助你在面試中展現自信。 From common questions to mock strategies to show confidence.', 
+    desc: '從常見問題分析到面試策略，助你準備見工面試。 Help you prepare for job interviews, from common questions to interview strategies.', 
     wixUrl: 'https://career306.wixsite.com/careerresourcehub/interview-tips',
     image: 'https://images.unsplash.com/photo-1698047681452-08eba22d0c64?q=80&w=800&auto=format&fit=crop'
   },
@@ -85,7 +85,7 @@ const baseCategories = [
     title: '各種自我管理技能 Self-Management Skills', 
     icon: Target, 
     styles: { bg: 'bg-gray-100', text: 'text-black', border: 'border-gray-200', btn: 'bg-black hover:bg-gray-800 text-white', textHover: 'group-hover:text-gray-600' }, 
-    desc: '培養時間管理、情緒調節與抗壓能力，全面提升職場與生活效能。 Develop time management, emotional resilience, and stress management skills.', 
+    desc: '培養時間管理、情緒調節與抗壓等能力。 Develop skills including time management, emotional resilience, and stress management.', 
     wixUrl: '',
     image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=80&w=800&auto=format&fit=crop'
   }
@@ -306,9 +306,6 @@ const App = () => {
                 Empower <br/>
                 <span className="hover:text-transparent hover:bg-clip-text hover:bg-gradient-to-r hover:from-rose-500 hover:to-orange-500 transition-all duration-500 cursor-default">
                   Your Career.
-                </span>
-                <span className="block text-2xl sm:text-3xl md:text-4xl mt-6 text-gray-400 tracking-wide font-bold">
-                  啟發您的職涯
                 </span>
               </h1>
               
